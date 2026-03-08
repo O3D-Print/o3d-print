@@ -23,14 +23,17 @@ body{
     background-color: aqua;
 }
 
-.barra{
+/* --- Estilos base (Escritorio) --- */
+.barra {
     display: flex;
+    justify-content: space-between; /* Separa el logo del menú */
+    align-items: center;
     background-color: aquamarine;
     padding: 10px;
     border-radius: 10px;
 }
 
-.logo{
+.logo {
     padding: 5px;
     border-radius: 10px;
     background-color: aqua;
@@ -39,22 +42,52 @@ body{
     text-align: center;
 }
 
-.barra ul li{
-    display: inline-block;
+/* Quitamos puntos y margen por defecto del ul */
+.barra ul {
+    display: flex; /* Convertimos el ul también en flex */
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.barra ul li a{
-    margin-top: 20px;
+.barra ul li a {
+    display: block; /* Para que el padding funcione bien */
+    margin-left: 10px; /* Espacio entre botones en horizontal */
     padding: 10px;
     border-radius: 10px;
     color: black;
     background-color: rgb(163, 253, 223);
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.barra ul li a:hover{
+.barra ul li a:hover {
     background-color: rgb(64, 160, 160);
     color: white;
     cursor: pointer;
+}
+
+/* --- Ajuste para Pantallas Pequeñas (Móvil) --- */
+@media (max-width: 600px) {
+    .barra {
+        flex-direction: column; /* Apila logo y menú */
+    }
+
+    .barra ul {
+        flex-direction: column; /* Apila los botones uno abajo del otro */
+        width: 100%; /* Que ocupen todo el ancho */
+        margin-top: 15px;
+    }
+
+    .barra ul li {
+        width: 100%; /* Li al 100% */
+        margin-bottom: 10px; /* Espacio vertical entre botones */
+    }
+
+    .barra ul li a {
+        margin-left: 0; /* Quitamos el margen lateral de escritorio */
+        text-align: center; /* Centramos el texto del botón */
+    }
 }
 
 .buscar{
